@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "66c2d52b47b8595edec5917b30372135"
+application_url = "https://learning-tan-bikini-soa.trycloudflare.com"
+embedded = true
+name = "flexible-capital-app"
+handle = "flexible-capital-app-5"
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "flexible-capital-app-dev.myshopify.com"
+include_config_on_deploy = true
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products, read_products, read_product_listings"
+
+[auth]
+redirect_urls = [
+  "https://learning-tan-bikini-soa.trycloudflare.com/auth/callback",
+  "https://learning-tan-bikini-soa.trycloudflare.com/auth/shopify/callback",
+  "https://learning-tan-bikini-soa.trycloudflare.com/api/auth/callback"
+]
+
+[pos]
+embedded = false
